@@ -1,0 +1,17 @@
+.dub
+docs.json
+__dummy.html
+docs/
+jml
+jml.so
+jml.dylib
+jml.dll
+jml.a
+jml.lib
+jml-test-*
+*.exe
+*.o
+*.obj
+*.lst
+*.json
+*.jml
