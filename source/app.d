@@ -15,16 +15,22 @@ auto readJson(string filename)
 
 int main(string[] argv)
 {
-  if (argv.length>2)
+  JSONValue data;
+  if (argv.length > 1)
   {
-    auto data = readJson(argv[2]);
+    if (argv.length == 2)
+    {
+      data = readJson("/dev/stdin");
+    }
+    else if (argv.length == 3)
+    {
+      data = readJson(argv[2]);
+    }
     auto lex = new Lexer(readText(argv[1]));
     new Parser(lex).getMain().run(&data);
-  }
-  else
-  {
-    writeln("Usage: jml script file");
+    return 0;
   }
 
+  writeln("Usage: jml script file");
   return 0;
 }
